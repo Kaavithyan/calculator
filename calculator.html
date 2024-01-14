@@ -2,50 +2,12 @@
 <html>
 <head>
 	<title>Calculator</title>
-	<style>
-		.calculator {
-			width: 250px;
-			padding: 10px;
-			background-color: #eee;
-			border: 1px solid #ccc;
-			border-radius: 5px;
-			box-shadow: 0 0 5px #ccc;
-			margin: 0 auto;
-		}
-
-		.calculator input[type="text"] {
-			width: 100%;
-			margin-bottom: 10px;
-			padding: 5px;
-			font-size: 18px;
-			border-radius: 3px;
-			border: 1px solid #ccc;
-			background-color: #fff;
-			box-shadow: inset 0 0 5px #ccc;
-			text-align: right;
-		}
-
-		.calculator input[type="button"] {
-			width: 50px;
-			height: 50px;
-			margin: 2px;
-			font-size: 20px;
-			background-color: #fff;
-			border: 1px solid #ccc;
-			border-radius: 3px;
-			box-shadow: 0 0 5px #ccc;
-			cursor: pointer;
-		}
-
-		.calculator input[type="button"]:hover {
-			background-color: #f2f2f2;
-		}
-
-		.calculator input[type="button"].operator {
-			background-color: #f2f2f2;
-			font-weight: bold;
-		}
-	</style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="light-theme.css" id="theme-stylesheet">
 </head>
 <body>
 	<div class="calculator">
@@ -66,8 +28,16 @@
 		<input type="button" value="0" onclick="addToDisplay('0')">
 		<input type="button" value="=" onclick="calculate()" class="operator">
 		<input type="button" value="/" onclick="addToDisplay('/')" class="operator">
+		
 	</div>
 
+	<script>
+		// Check if the user prefers dark mode
+		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+		  // If yes, load the dark theme CSS
+		  document.getElementById('theme-stylesheet').href = 'dark-theme.css';
+		}
+	</script>
 	<script>
 		function addToDisplay(value) {
 			document.getElementById("display").value += value;
